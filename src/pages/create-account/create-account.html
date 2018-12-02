@@ -1,0 +1,114 @@
+<!--
+  Generated template for the CreateAccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <form [formGroup] ="create">
+          <ion-list>
+            
+            <ion-item>
+              <ion-label floating required="">Username</ion-label>
+              <ion-input type="text" formControlName="user" #username [(ngModel)]="Uname" ></ion-input>
+            </ion-item>
+
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.user" >
+                <div class="error-message" *ngIf="create.get('user').hasError(validation.type) && (create.get('user').dirty || create.get('user').touched)">
+                {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+
+            <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input type="text" formControlName="email" #email [(ngModel)]="Email"></ion-input>
+            </ion-item>
+
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.email" >
+                <div class="error-message" *ngIf="create.get('email').hasError(validation.type) && (create.get('email').dirty || create.get('email').touched)">
+                {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password" formControlName="pass" #password></ion-input>
+            </ion-item>
+
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.pass" >
+                <div class="error-message" *ngIf="create.get('pass').hasError(validation.type) && (create.get('pass').dirty || create.get('pass').touched)">
+                {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+
+            <ion-item>
+                <ion-label floating>Shop Name</ion-label>
+                <ion-input  type="text" formControlName="shop" #shopname [(ngModel)]="Shopname"></ion-input>
+            </ion-item>
+
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.shop" >
+                <div class="error-message" *ngIf="create.get('shop').hasError(validation.type) && (create.get('shop').dirty || create.get('shop').touched)">
+                {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+
+            <ion-item>
+                <ion-label floating>Contact Number</ion-label>
+                <ion-input type="text" formControlName="contact" #contact [(ngModel)]="Contact" ></ion-input>
+            </ion-item>
+
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.contact" >
+                <div class="error-message" *ngIf="create.get('contact').hasError(validation.type) && (create.get('contact').dirty || create.get('contact').touched)">
+                {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+
+                
+            
+          </ion-list>
+           
+      </form>
+
+      <div id ="log">
+      <button ion-button icon-right full [disabled]="!create.valid" (click) = "createAccount()" type = "submit"> <!--add this function "add(create.valid)"-->
+          Create Account
+        <ion-icon name="home"> </ion-icon></button>
+      <!-- <button ion-button (click) = "add(create.valid)"></button> -->
+      </div>
+
+    <!-- <div>
+      <p>
+        The person's name is {{ myPerson.Email }}
+      </p>
+</div> -->
+<!-- <ion-list>
+  <ion-item *ngFor = "let item of arrData; let i = index">
+      {{item.$value}}
+  </ion-item>
+</ion-list> -->
+
+</ion-content>
